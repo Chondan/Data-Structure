@@ -29,6 +29,10 @@ Example of ADT:
 - Hash Tables: Data is stored in an associative manner. A hash function is used to map the data to array positions.
 
 ### Linked List
+- Operations
+		- Inserting at the Beginning, Inserting at the End, Inserting at a specific position
+		- Deleting at the Beginning, Deleting at the End, Deleting at a specific position
+		- Show List, Get value at position, Get size
 
 #### Advantage over an array
 - Not Fixed in Size
@@ -47,10 +51,9 @@ Example of ADT:
 1. Singly Linked List 
 	- A singly linked list is the simplest type of linked list in which every node contains some data and a pointer to the next node.
 	- Allows traversal of data only in one way.
-	- Operations
-		- Inserting at the Beginning, Inserting at the End, Inserting at a specific position
-		- Deleting at the Beginning, Deleting at the End, Deleting at a specific position
-		- Show List, Get value at position, Get size
 2. Doubly Linked List 
 	- Every node has two pointers: next and previous. This allows for reverse traversal anywhere in the list.
-	
+3. Circular Linked List
+	- Last node connect to the first node, forming a loop.
+	- The last node contain a pointer to the first node of the list.
+	- While traversing a circular linked list, we can begin at any node and traverse the list in any direction, forward or backward, until we reach the same node where we started.

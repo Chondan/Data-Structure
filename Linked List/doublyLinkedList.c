@@ -117,7 +117,7 @@ int isEmpty(List *list) {
 
 int isOutOfIndex(int pos, List *list) {
 	int size = getSize(list);
-	if ((pos < 0) || (pos > size)) {
+	if ((pos < 0) || (pos >= size)) {
 		printf("Out of index.\n");
 		return 1;
 	}
