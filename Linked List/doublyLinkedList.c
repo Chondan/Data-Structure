@@ -199,7 +199,6 @@ void insertAtEnd(int value, List *list) {
 }
 
 void insertAtPostion(int value, int pos, List *list) {
-	if (isOutOfIndex(pos, list)) { return; }
 	Node *newNode = createNode(value);
 	if (isEmpty(list)) {
 		newNode->previous = NULL;
@@ -213,6 +212,7 @@ void insertAtPostion(int value, int pos, List *list) {
 		insertAtEnd(value, list);
 		return;
 	}
+	if (isOutOfIndex(pos, list)) { return; }
 	Node *beforeNode = getNodePosition(pos - 1, list);
 	Node *afterNode = getNodePosition(pos, list);
 	beforeNode->next = newNode;
