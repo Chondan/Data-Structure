@@ -22,7 +22,7 @@ int getSize(Stack *stack); // DONE
 
 int main(void) {
 	Stack *stack = malloc(sizeof(Stack));
-	int choice, value, pos;
+	int choice, value;
 	while (1) {
 		printf("\n\n----- MENU -----\n");
 		printf("1. Push\n2. Pop\n3. Peek\n");

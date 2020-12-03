@@ -81,6 +81,8 @@ An example of real life phenomena of stacks is of plates stacked over one anothe
 2. Pop Operation: When an element is removed from the stack, it is said that the element is popped from the stack. The top pointer is moved down to point to the element below the removed element.
 3. Peek Operation: Peek is an operation that returns the value of the topmost element of the stack without deleting it from the stack.
 
+---
+
 ### Queues
 Queue is a linear data structure which unlike the stack is open at both ends. If follows the FIFO (First In First Out) principle, which means that the element that is inserted first is removed first.
 

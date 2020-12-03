@@ -24,7 +24,7 @@ int getSize(Queue *queue);
 
 int main(void) {
 	Queue *queue = malloc(sizeof(Queue));
-	int choice, value, pos;
+	int choice, value;
 	while (1) {
 		printf("\n\n----- MENU -----\n");
 		printf("1. Enqueue\n2. Dequeue\n3. Peek\n");
