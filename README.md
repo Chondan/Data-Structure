@@ -28,6 +28,8 @@ Example of ADT:
 - Graphs: Consists of nodes and edges used to represent relations between pairs of objects.
 - Hash Tables: Data is stored in an associative manner. A hash function is used to map the data to array positions.
 
+---
+
 ### Linked List
 - Operations
 		- Inserting at the Beginning, Inserting at the End, Inserting at a specific position
@@ -57,3 +59,50 @@ Example of ADT:
 	- Last node connect to the first node, forming a loop.
 	- The last node contain a pointer to the first node of the list.
 	- While traversing a circular linked list, we can begin at any node and traverse the list in any direction, forward or backward, until we reach the same node where we started.
+
+---
+
+### Stack
+A stack is a linear data structure which stores its elements in particular order. This order followed by a stack is known as LIFO (Last in First Out).
+
+An example of real life phenomena of stacks is of plates stacked over one another on a table. The plate which is at the top is the first one to be removed, it is not possible to remove the last plate unless the above plates have been removed, following the principle Last In First Out.
+
+#### Examples in Programming
+1. **UNDO functionality in text editors:** are based on a stack. Every change in the document is added to stack and upon an UNDO request, the last change is referred by popping it from the stack.
+2. **Parentheses checker:** the ordered manner of the stack could be used for checking the proper closing of parentheses. Every opening parentheses is pushed on to the stack and for every correct closing parentheses, it is poped off. Irregularities can then be detected if they mismatch.
+3. **Expression parsing:** using stacks can help evaluate expressions faster using postfix or prefix notation.
+
+#### Properties
+1. Follows LIFO (Last In First Out Order), the last element that is inserted is pushed out first.
+2. A pointer keeps track of the stack's topmost (or last) element. This is manipulated on the basis of operations to be performed to know keep track of most recent element.
+
+#### Stack Manipulation Operations
+1. Push Operation: When an element is inserted into the stack, it is said that the element is pushed into the stack. The top pointer is moved up to point to the element that is inserted.
+2. Pop Operation: When an element is removed from the stack, it is said that the element is popped from the stack. The top pointer is moved down to point to the element below the removed element.
+3. Peek Operation: Peek is an operation that returns the value of the topmost element of the stack without deleting it from the stack.
+
+### Queues
+Queue is a linear data structure which unlike the stack is open at both ends. If follows the FIFO (First In First Out) principle, which means that the element that is inserted first is removed first.
+
+#### Real Life Examples of Queus
+1. An example of a queue is the queue we see everyday in our lives. People join a queue from the end and get out of the queue from the front, following the FIFO principle.
+2. A queue is used in process scheduling in the Operating System. A series of precesses wait in a queue waiting to be executed when required resources are free.
+
+#### Properties
+1. Follows the FIFO (First In First Out Order), the first element that is inserted, is removed first.
+2. Two pointers keep track of the front and rear ot the queue, whenever insertion or deletion takes place, these two pointers are updated accordingly to track the last and first element.
+3. Insertion takes place from the rear and deletion from the front.
+
+#### Types of Queues
+Queues and their functions can be modified to have some additional advantages, some of the other types of queues are:
+1. Double Ended Queus (Deque)
+A deque is a list in which the elements can be inserted or deleted at either end. These are further of two types:
+	1. Input Restricted Queue: Where insertion takes place only from the rear end, deletion can take place from both ends.
+	2. Output Restricted Queue: Where deletion takes place from only the front, however insertion can take place from both ends.
+2. Priority Queues
+Priority queue is like a regular queue or stack data structure, but where additionally each element has a 'priority' associated with it. In a priority queue, an element with high priority is served before an element with low priority.
+
+This can be helped in operations where priority is important for executing operations in a certain order.
+
+3. Circular Queue (Circular Buffer)
+A circular queue is a queue that uses a single, fixed-size buffer as if it were connected end-to-end.
