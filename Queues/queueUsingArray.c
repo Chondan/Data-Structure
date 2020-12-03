@@ -13,9 +13,9 @@ typedef struct Queue {
 Queue *createQueue(int size); // DONE
 void enqueue(int value, Queue *queue); // DONE
 void dequeue(Queue *queue); // DONE
-void peek(Queue *queue);
+void peek(Queue *queue);  
 int isEmpty(Queue *queue); // DONE
-int isFull(Queue *queue); // DONE
+int isFull(Queue *queue); // DONE 
 void display(Queue *queue); // DONE
 int getSize(Queue *queue); // DONE
 
@@ -67,44 +67,6 @@ int main(void) {
 }
 
 // QUEUE OPERATIONS
-int isEmpty(Queue *queue) {
-	if ((queue->front == -1) && (queue->rear == -1)) { return 1; }
-	return 0;
-}
-
-int isFull(Queue *queue) {
-	if (queue->rear == queue->maxSize - 1) { return 1; }
-	return 0;
-}
-
-int getSize(Queue *queue) {
-	if (isEmpty(queue)) { return 0; }
-	if (isFull(queue)) { return queue->maxSize; }
-	return queue->rear + 1;
-}
-
-void display(Queue *queue) {
-	if (isEmpty(queue)) {
-		printf("The queue is empty.\n");
-		return;
-	}
-	int front = queue->front;
-	int rear = queue->rear;
-	printf("----- QUEUES -----\n");
-	for (int i = front; i <= rear; i++) {
-		printf("%d: %d\n", i, *((queue->arr) + i));
-	}
-	printf("------------------\n");
-}
-
-void peek(Queue *queue) {
-	if (isEmpty(queue)) { 
-		printf("The queue is empty.\n");
-		return;
-	}
-	printf("The first queue is %d.\n", *(queue->arr));
-}
-
 Queue *createQueue(int size) {
 	Queue *queue = malloc(sizeof(Queue));
 	queue->front = -1;
@@ -114,21 +76,75 @@ Queue *createQueue(int size) {
 	return queue;
 }
 
+int isEmpty(Queue *queue) {
+	if ((queue->front == -1) && (queue->rear == -1)) { return 1; }
+	return 0;
+}
+
+int isFull(Queue *queue) {
+	if (queue->rear == queue->maxSize - 1) {
+		if (queue->front == 0) {
+			return 1;
+		}
+		return 0;
+	} else {
+		if (queue->rear + 1 == queue->front) {
+			return 1;
+		}
+		return 0;
+	}
+}
+
+int getSize(Queue *queue) {
+	int start;
+	if (isEmpty(queue)) { return 0; }
+	if (isFull(queue)) { return queue->maxSize; }
+	if (queue->front < queue->rear) {
+		return queue->rear - queue->front + 1;
+	}
+	return (queue->maxSize - queue->front + 1) + (queue->rear + 1);
+}
+
+void display(Queue *queue) {
+	if (isEmpty(queue)) {
+		printf("The queue is empty.\n");
+	}
+	int start = queue->front;
+	int index = 0;
+	printf("----- QUEUES -----\n");
+	while (1) {
+		if (start == queue->rear) {
+			break;
+		}
+		printf("%d: %d\n",index, queue->arr[start]);
+		start++;
+		index++;
+		if (start == queue->maxSize) {
+			start = 0;
+		}
+	}
+	printf("%d: %d\n",index, queue->arr[start]);
+	printf("------------------\n");
+}
+
 void enqueue(int value, Queue *queue) {
 	if (isFull(queue)) {
 		printf("The queue is full.\n");
 		return;
 	}
 	if (isEmpty(queue)) {
-		*(queue->arr) = value;
-		queue->front += 1;
-		queue->rear += 1;
-		printf("Inserted %d into the queue.\n", value);
+		queue->front++;
+		queue->rear++;
+		queue->arr[queue->front] = value;
 		return;
 	}
-	*((queue->arr) + (queue->rear) + 1) = value;
+	if (queue->rear == queue->maxSize - 1) {
+		queue->rear = 0;
+		queue->arr[queue->rear] = value;
+		return;
+	}
 	queue->rear++;
-	printf("Inserted %d into the queue.\n", value);
+	queue->arr[queue->rear] = value;
 }
 
 void dequeue(Queue *queue) {
@@ -136,15 +152,22 @@ void dequeue(Queue *queue) {
 		printf("The queue is empty.\n");
 		return;
 	}
-	int front = queue->front;
-	int rear = queue->rear - 1;
-	int temp = *(queue->arr);
-	for (int i = front; i <= rear; i++) {
-		*((queue->arr) + i) = *((queue->arr) + i + 1);
-	}
-	queue->rear--;
-	if (queue->rear == -1) {
+	int temp = queue->arr[queue->front];
+	if (queue->front == queue->rear) {
 		queue->front = -1;
+		queue->rear = -1;
+	} else if (queue->front == queue->maxSize - 1) {
+		queue->front = 0;
+	} else {
+		queue->front++;
 	}
 	printf("Removed %d from the queue.\n", temp);
+}
+
+void peek(Queue *queue) {
+	if (isEmpty(queue)) {
+		printf("The queue is empty.\n");
+		return;
+	}
+	printf("The first queue is %d.\n", queue->arr[queue->front]);
 }

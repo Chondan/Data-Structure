@@ -108,3 +108,5 @@ This can be helped in operations where priority is important for executing opera
 
 3. Circular Queue (Circular Buffer)
 A circular queue is a queue that uses a single, fixed-size buffer as if it were connected end-to-end.
+
+Circular queue is a good implementation for a queue that has fixed maximum size, as their is no shifting involved and the whole queue can be used up for storing all the elements, which is not possible in an array implementation of linear queue.
