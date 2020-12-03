@@ -213,7 +213,6 @@ void insertAtEnd(int value, List *list) {
 }
 
 void insertPosition(int value, int pos, List *list) {
-	if (isOutOfIndex(pos, list)) { return; }
 	if (pos == 0) {
 		insertAtBeginning(value, list);
 		return;
@@ -221,8 +220,9 @@ void insertPosition(int value, int pos, List *list) {
 		insertAtEnd(value, list);
 		return;
 	}
+	if (isOutOfIndex(pos, list)) { return; }
 	Node *beforeNode = getNodePosition(pos - 1, list);
-	Node *afterNode = getNodePosition(pos + 1, list);
+	Node *afterNode = getNodePosition(pos, list);
 	Node *newNode = createNode(value);
 	beforeNode->next = newNode;
 	newNode->next = afterNode;
