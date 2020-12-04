@@ -4,7 +4,7 @@
 // STRUCT
 typedef struct Node {
 	int value;
-	struct Node *next;
+	struct Node *next; // point to the node behind
 } Node;
 // lastNode->next = NULL
 
@@ -97,6 +97,7 @@ void dequeue(Queue *queue) {
 	Node *front = queue->front;
 	Node *newFront = front->next;
 	queue->front = newFront;
+	// Remove the last element ( the queue is going to be emptied )
 	if (!newFront) {
 		queue->rear = NULL;
 	}
