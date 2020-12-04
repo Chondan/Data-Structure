@@ -8,8 +8,8 @@ typedef struct Node {
 	struct Node *right;
 } Node;
 
-Node *createNode(int value);
-void traverse(Node *root);
+Node *createNode(int value); // DONE
+void traverse(Node *root); // DONE
 
 int main(void) {
 	Node *root = createNode(1);

@@ -212,5 +212,12 @@ A tree is widely used data structure that simulates a hierarchical tree structur
 				2. Double Threaded: Where both left and right NULL pointers are made to point to inorder predecessor and inorder successor respectively. The predecessor threads are useful for reverse inorder traversal and postorder traversal. 
 			- The threads are also useful for fast accessing ancestors of a node.
 2. Binary Search Trees
+	- A Binary Search Tree is a binary tree that additionally satisfies the binary search property.
+	- Binary Tree Property
+		- This property state that the key in each node must be greater than or equal to any key stored in the left sub-tree, and less than or equal to any key stored in the right sub-tree.
+	- Operations in Binary Search Tree
+		- Searching
+		- Insertion
+		- Deletion 
 3. Multiway Search Trees
 4. AVL Trees
