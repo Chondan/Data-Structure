@@ -15,7 +15,7 @@
 	- The next pointer of the base node (the bottom of the stack) point to NULL.
 - [x] Queue ( Queue -> front and rear, Node -> value, next (point to the node behind) )
 	- The next pointer of the last queue point to null.
-- [ ] Trees
+- [x] Trees
 - [ ] Heaps
 - [ ] Graphs
 - [ ] Hash Tables
@@ -193,11 +193,6 @@ A tree is widely used data structure that simulates a hierarchical tree structur
 	- A forest is a set of disjoint trees.
 
 #### Types of trees
-- Terminologies:
-	Types of traverese:
-		- Preorder
-		- Inorder
-		- Postorder
 1. Binary Trees
 	- In a normal tree, every node can have any number of children. A Binary tree is a special type of tree in which every node can have a maximum of 2 children. One is known as left child and the other as right child.
 	- Binary Tree Representation
@@ -230,5 +225,30 @@ A tree is widely used data structure that simulates a hierarchical tree structur
 		- Insertion
 		- Deletion 
 3. Multiway Search Trees
-	- A multiway tree can have more than one value per node. They are written as m-way trees where the m means the order of the tree. A multiway tree can have m-1 values per node and m children. Although, not every node needs to have m-1 values or m children.
+	- A multiway tree can have more than one value per node. They are written as m-way trees where the m means the order of the tree. A multiway tree can have m-1 values per node and m children (m ways). Although, not every node needs to have m-1 values or m children.
 4. AVL Trees
+	- An AVL tree is a self-balancing binary search tree. A binary tree is said to be balanced, if the difference between the heights of left and right subtrees of every node in the tree is either -1, 0, or +1. This is known as the Balance Factor.
+	- Balance Factor
+		- Balance Factor = height(left_subtree) - height(right_subtree)
+	- Rebalancing
+		- During a modifying operation (e.g. insert, delete), if the height difference of more than 1 arises between two subtrees, the parent subtree has to be 'rebalanced' to satisfy the AVL property.
+		- These are done by tree rotations, which moves the keys in such a manner that there order is preserved, but the balance factor is also satisfied.
+	- AVL Tree Rotations
+		- Rotation is the process of moving the nodes to either left or right to make tree balanced. There are 4 types of rotations:
+			1. Single Left Rotation (LL Rotation)
+			2. Single Right Rotation (RR Rotation)
+			3. Left Right Rotation (LR Rotation)
+			4. Right Left Rotation (RL Rotation)
+
+#### Binary Tree Traversals
+A binary tree is traversed when one needs to access or display its elements. Each method produces a different order of elements that may be useful in scenarios when needed.
+
+- Traversal Methods
+	1. Inorder [Left - Root - Right]
+		- In this traversal, the left child node is visited first, then the root node is visited and later we go for visiting right child node.
+	2. Preorder [Root - Left - Right]
+		- In this traversal, the root node is visited first, then its left child and later its right child.
+	3. Postorder [Left - Right - Root]
+		- In this traversal, left child node is visited first, then its right child and then its root node.
+
+---
