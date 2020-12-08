@@ -252,3 +252,30 @@ A binary tree is traversed when one needs to access or display its elements. Eac
 		- In this traversal, left child node is visited first, then its right child and then its root node.
 
 ---
+
+### Heaps
+A heap is a specialized tree-based data structure that satisfies the heap property. It can be of 2 types: max heap and min heap.
+
+#### The Heap Property
+The heap property says that is the value of Parent is either greater than or equal to (in a max heap) or less than or equal to (in a min heap) the value of the Child.
+
+#### Uses in programming
+1. Heapsort: One of the best in-place sorting methods with no quadratic worst-case scenarios. This is because the minimum or maximum element is always the root of the tree.
+2. Implementing prioriy queus: the highest (or lowest) priority element is always stored at the root.
+3. Selection algorithms: A heap allow access to the the min or max element in constant time, and other selections (such as median or kth-element) can be done in sub-linear time on data that is in heap.
+4. Graph algorithms: By using heaps as internal traversal data structures, run times can be reduced by polynomial order.
+
+#### Heap Operations
+- Finding Maximum/Minimum
+	- Finding the node which has maximum or minimum value is easy. Due to the heap property, it will be always the root node, hence we can access it in constant time.
+- Insertion
+	- The new heap would not necessarily satisfy the heap property, we have to make it satisfy the heap property
+		- Step 1: Insert the node like in a normal tree.
+		- Step 2: If the new Node is greater/lesser than its parent, swap it with it's parent.
+- Deletion
+	- An element is always deleted from the root of the heap. So, deleting an element from the heap is done in the following steps:
+		- Step 1: Replace the root node's value with the last node's value.
+		- Step 2: Delete the last node.
+		- Step 3: Sind down the new root node's value so that the heap again satisfies the heap property.
+
+---
