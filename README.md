@@ -193,6 +193,11 @@ A tree is widely used data structure that simulates a hierarchical tree structur
 	- A forest is a set of disjoint trees.
 
 #### Types of trees
+- Terminologies:
+	Types of traverese:
+		- Preorder
+		- Inorder
+		- Postorder
 1. Binary Trees
 	- In a normal tree, every node can have any number of children. A Binary tree is a special type of tree in which every node can have a maximum of 2 children. One is known as left child and the other as right child.
 	- Binary Tree Representation
@@ -212,6 +217,11 @@ A tree is widely used data structure that simulates a hierarchical tree structur
 				2. Double Threaded: Where both left and right NULL pointers are made to point to inorder predecessor and inorder successor respectively. The predecessor threads are useful for reverse inorder traversal and postorder traversal. 
 			- The threads are also useful for fast accessing ancestors of a node.
 2. Binary Search Trees
+	- Terminologies:
+		- Inorder successor
+		- Inorder predecessor
+	- Additional Resources:
+		- https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
 	- A Binary Search Tree is a binary tree that additionally satisfies the binary search property.
 	- Binary Tree Property
 		- This property state that the key in each node must be greater than or equal to any key stored in the left sub-tree, and less than or equal to any key stored in the right sub-tree.
@@ -220,4 +230,5 @@ A tree is widely used data structure that simulates a hierarchical tree structur
 		- Insertion
 		- Deletion 
 3. Multiway Search Trees
+	- A multiway tree can have more than one value per node. They are written as m-way trees where the m means the order of the tree. A multiway tree can have m-1 values per node and m children. Although, not every node needs to have m-1 values or m children.
 4. AVL Trees
