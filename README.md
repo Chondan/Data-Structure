@@ -16,7 +16,7 @@
 - [x] Queue ( Queue -> front and rear, Node -> value, next (point to the node behind) )
 	- The next pointer of the last queue point to null.
 - [x] Trees
-- [ ] Heaps
+- [x] Heaps
 - [ ] Graphs
 - [ ] Hash Tables
 
@@ -279,3 +279,59 @@ The heap property says that is the value of Parent is either greater than or equ
 		- Step 3: Sind down the new root node's value so that the heap again satisfies the heap property.
 
 ---
+
+### Graph
+A graph is a non-linear data structure consisting of nodes and edges. The nodes are sometimes also reffered to as vertices and the edges are lines or arcs that connect any two nodes in the graph. More formally a Graph can be defined as,
+
+> A Graph consists of a finite set of vertices (or nodes) and set of Edges which connect a pair of nodes.
+
+#### Properties of graphs
+1. A graphs G is defined as an ordered set (V, E), where V(G) represents the set of vertices and E(G) represents the edges that connect these vertices.
+2. A graph can be directed or undirected:
+	- In an undirected graph, edges do not have any direction associated with them.
+	- In a directed graph, edges from an ordered pair. If there is an edge from A to B, then there is a path from A to B but not from B to A.
+
+![Directed Graphs VS Undirected Graphs](https://sites.google.com/a/cs.christuniversity.in/discrete-mathematics-lectures/_/rsrc/1409480658489/graphs/directed-and-undirected-graph/dir.png)
+
+#### Uses in programming 
+Graphs are used to solve many real-life problems. Graphs are used to represent networks. The networks may include paths in a city or telephone network or circuit network. Graphs are also used in social networks like linkedIn, Facebook. For example, in Facebook, each person is represented with a vertex (or node). Each node is a structure and contains information like person id, name, gender, locale etc.
+
+#### Terminology used in Graphs
+- Vertex: A individual data element of a graph is called as Vertex.
+- Edge: An edge is a connecting link between two vertices. An Edge is also known as Arc.
+- Undirected Graph: A graph with onl undirected edge is said to be undirect graph.
+- Directed Grpah: A graph with only directed edges is said to be directed graph.
+- Mixed Graph: A graph with undirected and directed edges is said to be mixed graph.
+- Origin: If an edge is directed, its first endpoint is said to be origin of it.
+- Destination: If an edge is directed, its first endpoint is said to be origin of it and the other endpoint is said to be the destination of the edge.
+- Adjacency: Two node or vertices are adjacent if they are connected to each other through an edge.
+- Path: Path represents a sequence of edges between the two vertices.
+- Degree: Total number of edges connected to a vertex is said to be degree of that vertex.
+- In-Degree: Indegree of a vertex is the number of edges which are coming into the vertex.
+- Out-Degree: Outdegree of vertex is the nubmer of edges which are going out from the vertex.
+- Minimum Spanning Tree (MST): A minimum spanning tree (MST) is a subset of the edges of a connected, edge-weighted (un)directed graph that connects all the vertices together, without any cycles and with the mimimum possible total edge weight.
+![Minimum Spanning Tree](https://he-s3.s3.amazonaws.com/media/uploads/146b47a.jpg)
+- Simple Graph: A graph is said to be simple if there are no paralled and self-loop edges.
+- Directed acyclic graph (DAG): A directed acyclic graph (DAG) is a graph that is directed and without cycles connecting the other edges. This means that it is impossible to traverse the entire graph starting at one edge.
+- Weighted Graph: A weighted graph is a graph in which a number (known as the weight) is assigned to each edge. Such weights might represent for example costs, legths or capacities, depending on the problem.
+- Complete Graph: A complete graph is a graph in which each pair of vertices is joined by an edge. A complete graph contains all possible edges.
+- Connected Graph: A connected graph is an undirected graph in which every unordered pair of vertices in the graph is connected. Otherwise, it is called a disconnected graph.
+
+#### Representation of Graphs
+A graph can be represented in memory in 2 ways: 1. Adjacency Matrix 2. Adjacency List
+
+#### Graph Traversals
+Graph traversal is technique used for searching a vertex in a graph. It is also used to decide the order of vertices to be visit in the search process. A traversal algorithms is careful not to get into loops and repeatedly visit the same nodes.
+
+There are 2 common graph traversal algorithms:
+1. Breadth First Search: Explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.
+	- Breadth-first search (BFS) is a graph search algorithm that begins at the root node and explores all the neighboring nodes. Then for each of those nearest nodes, the algorithm explores their unexplored neighbor nodes, and so on, until it finds the specified node.
+	- A queue is used as an auxiliary data structure to keep track of the neighbouring nodes.
+	- Properties:
+		1. Time complexity: In the worst case, breadth-first search has to traverse through all paths to all possible nodes. Therefor, the time complexity can be expressed as `O(|E| + |V|)` which is the sum of all vertices(V) and edges(E).
+		2. Space Complexity: In the breadth-first search algorithm, all the nodes at a particular level must be saved until their child nodes in the next level have been visited. The space complexity is therefore proportional to the number of nodes at the deepest level of the graph.
+		3. Completeness: Breadth-first search is said to be a complete algorithm because if there is a solution, breadth-first search will find it regardless of the kind of graph. But in case of an infinite graph where there is no possible solution, it will diverge.
+2. Depth First Search: Explores as far as possible along each branch before backtracking.
+
+#### Other Algorithms
+- Togological Sorting: Linear ordering of vertices such that for every directed edge uv from vertex u to vertext v, u comes before v in the ordering.
