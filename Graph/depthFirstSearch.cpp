@@ -2,11 +2,6 @@
 #include <list>
 using namespace std;
 
-// Pseudo Code
-/* 
-- 
-*/
-
 class Graph {
 private:
 	int V;// No. of vertices
