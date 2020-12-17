@@ -10,7 +10,7 @@ private:
 public:
 	Graph(int V); // constructor
 	void addEdge(int v, int w); // add w to v's list
-	void DFS(int s); // DFS traversal starting from vertex s
+	void DFS(); // DFS traversal starting from vertex s
 };
 
 int main(void) {
@@ -24,7 +24,7 @@ int main(void) {
  
     cout << "Following is Depth First Traversal"
             " (starting from vertex 2) \n";
-    g.DFS(2);
+    g.DFS();
 }
 
 Graph::Graph(int V) {
@@ -36,12 +36,16 @@ void Graph::addEdge(int v, int w) {
 	adj[v].push_back(w);
 }
 
-void Graph::DFS(int s) {
+void Graph::DFS() {
 	bool *visited = new bool[V];
 	for (int i = 0; i < V; i++) {
 		visited[i] = false;
 	}
-	DFSUtil(s, visited);
+	for (int i = 0; i < V; i++) {
+		if (!visited[i]) {
+			DFSUtil(i, visited);
+		}
+	}
 	cout << '\n';
 }
 
