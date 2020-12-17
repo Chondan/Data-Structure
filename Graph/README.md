@@ -19,6 +19,7 @@ A graph is also a tree:
 	2. You must select the next vertex for exploration from 'Queue' only, so 'Queue' and exploration should be completely done.
 
 ## Depth Frist Search
+- Depth First Traversal (or Search) for a graph is similar to Depth First Traversal of a tree. The onlyh catch here is, unlike trees, graphs may contain cycles, a node may be visited twice. To avoid processing a node more than once, use a boolean visited array.
 - A stack is a data structure used here.
 - You can start 'DFS' from any vertex you like.
 - Rules
