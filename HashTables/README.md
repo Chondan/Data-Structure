@@ -76,3 +76,19 @@
 
 > hash function is the function that maps a key sapce into the hash table.
 
+There are 2 types of function in this case.
+1. one-one function
+2. many-one function -> cause a collision
+	- Collision Resolution Methods
+		1. Open Hashing
+			- Chaining
+		2. Closed Hashing (Open Adressing)
+			- Linear Probing -> find the next free space and store a new value in that space.
+				- `h'(x) = ( h(x) + f(i) ) mod size` where f(i) = i; i = 0, 1, 2, 3,...
+				- for searching an element, hash that value and go to the index which is the result of hasing. If the element in not placed in that index, we will search to the next index until we reach to the empty slot (it means that there is no value for this key in the table).
+				- this method cause a clustering of elements that increase a lot of time for searching.
+			- Quadratic Probing
+				- avoid clustering of elements.
+				- `h'(x) = ( h(x) + f(i) ) mod size` where f(i) = i^2; i = 0, 1, 2, 3,...
+
+---
