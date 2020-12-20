@@ -17,7 +17,7 @@
 	- The next pointer of the last queue point to null.
 - [x] Trees
 - [x] Heaps
-- [ ] Graphs
+- [x] Graphs
 - [ ] Hash Tables
 
 ---
@@ -335,3 +335,58 @@ There are 2 common graph traversal algorithms:
 
 #### Other Algorithms
 - Togological Sorting: Linear ordering of vertices such that for every directed edge uv from vertex u to vertext v, u comes before v in the ordering.
+
+---
+
+### Hash Tables
+A Hash table is a data structure in which keys are mapped to array positions by a hash function.
+
+A value stored in a hash table can then be searched in O(1) time, by using the same hash function which generates an address from the key. The process of mapping the keys to appropriate locations (or indices) in a hash table is called hashing.
+
+#### Advantages of Hashing 
+The main advantage of hash tables over other data structure is speed. The access time of an element is on average O(1), therefore lookup could be performed very fast. Hash tables are particulary effiecient when the maximum number of entries can be predicted in advance.
+
+#### Hash Functions
+A hash function is a mathematical formula which, when applied to a key, produces an value which can be used as an index for the key in the hash table. The main aim of a hash function is that elements should be uniformly distributed.
+
+#### Properties of a Good Hash Function
+- Uniformity: A good hash function must map the keys as evenly as possible. This means that the probability of generating every hash value in the output range should roughly be the same. This also helps reducing collisions.
+- Deterministic: A hash procedure must be deterministic - meaning that for a given input value, the function must always generate the same hash value.
+- Low Cost: The cost of executing a hash function must be small, so that using the hashing technique becomes preferable over other traditional approaches.
+
+#### Uses in Programming
+1. Identification Database: A hash function can make a unique signature from never changing data like our Date of Birth. This can be used in combination of other variables to uniquely identify a person.
+2. Search Engines: As the number of pages to be crawled is huge, a hash function is used to determine if the page is unique or it had already been crawled before, without comparing the whole webpage.
+
+#### Different Hash Functions
+- Division Method: It is the most simple method of hashing an integer x. This method divides x by M and then uses the remainder obtained. Generally, it is best to choose M to be a prime number because making M a prime number increases the likelihood that the keys are mapped with a uniformity in the output range of values.  
+- Multiplication Method
+- Mid-Square Method
+
+#### Bucket Hashing 
+
+Additional Resources: https://opendsa-server.cs.vt.edu/OpenDSA/Books/CS3/html/BucketHash.html
+
+One implementation for closed hashing groups hash table slots into buckets. The M slots of the hash table are divided into B buckets, with each bucket consisting of M/B slots.
+
+The hash function then assigns each record to the first slot within one of the buckets. If the slot is already occupied, then the bucket slots are searched sequentially until an open slot is found.
+
+If a buckey is entirely full, then the record is stored in an overflow bucket of infinite capacity at the end of the table. All buckets share the same overflow bucket. 
+
+An efficient implementation will use a hash function that distributes the record evenly among the buckets
+so that as few records as possible go into the overflow bucket.
+
+#### Collisions
+Collisions occur when the hash function maps two different keys to the same location. As two records cannot be stored in the same location.
+
+The method used to solve the problem of collisions is called the collision resolution technique.
+
+There are two popular collision resolution techniques:
+1. Open Addressing: Once a collision takes place, open addressing or closed hasing computes new position using a probe sequence and the next record is stored in that position. 
+	- There are some well known probe sequences:
+		1. Linear Probing: in which the interval between probes is fixed, often 1 is used.
+		2. Quadratic Probing: in which the interval between probes increase quadratically.
+		3. Double Hashing: in which the interval between probes is fixed for each record but is computed by another hash function.
+2. Seperate Chaining: In chaining, each location in a hash table stores a pointer to a linked list that contains all the key values that were hashed to that location. As new collisions occur, the linked list grows to accommodate those collisions forming a chain. Searching for value in a chained hash table is as simple as scanning a linked list for an entry with the given key. Insertion operaion appends the key to the end of the linked list pointed by the hashed location. Deleting a key requires searching the list and removing the element.
+
+---
