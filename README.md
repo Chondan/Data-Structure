@@ -390,3 +390,5 @@ There are two popular collision resolution techniques:
 2. Seperate Chaining: In chaining, each location in a hash table stores a pointer to a linked list that contains all the key values that were hashed to that location. As new collisions occur, the linked list grows to accommodate those collisions forming a chain. Searching for value in a chained hash table is as simple as scanning a linked list for an entry with the given key. Insertion operaion appends the key to the end of the linked list pointed by the hashed location. Deleting a key requires searching the list and removing the element.
 
 ---
+
+a
